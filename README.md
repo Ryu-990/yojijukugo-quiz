@@ -30,7 +30,7 @@
 ### クローン & インストール
 
 ```bash
-git clone https://github.com/your-username/yojijukugo-quiz.git
+git clone https://github.com/Ryu-990/yojijukugo-quiz
 cd yojijukugo-quiz
 npm install
 ````
