@@ -1,0 +1,51 @@
+# Node modules
+node_modules/
+
+# Build output
+.nuxt/
+dist/
+
+# Local environment files
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VS Code settings (optional)
+.vscode/
+
+# Mac特有の不要ファイル
+.DS_Store
+
+# OS-specific
+Thumbs.db
+
+# Optional lock files (choose depending on your package manager)
+package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Nuxt generate output (if using static site)
+output/
+
+# Nuxt telemetry
+.nitro/
+
+# Editor swap files
+*.swp
+
+# Local test coverage
+coverage/
+
+# Nuxt preview cache
+.nuxtrc
+
+# PM2 logs or runtime files (if deploying with it)
+pids/
+logs/
+
+# Optional: socket.io temporary cache or sessions
+sessions/
