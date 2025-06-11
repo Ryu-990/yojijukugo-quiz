@@ -163,6 +163,7 @@ function matchPlayers() {
         score: playerB.score
       },
       hint: rooms[roomId].hint,
+      //quiz: rooms[roomId].quiz, // ← 追加
       timer: rooms[roomId].timer
     });
 
@@ -266,7 +267,9 @@ function resetRoom(roomId) {
 
   io.to(roomId).emit('nextQuestion', {
     hint: room.hint,
-    timer: room.timer
+    timer: room.timer,
+    currentAnswer: room.currentAnswer,
+    quiz: room.quiz // 追加
   });
 
   startTimer(roomId);

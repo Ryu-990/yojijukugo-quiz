@@ -39,7 +39,7 @@
         </div>
 
         <div class="quiz-hint">
-          <h3>ヒント:</h3>
+          <h3>問題:</h3>
           <p>{{ gameState.hint }}</p>
         </div>
 
@@ -120,6 +120,7 @@ const gameState = reactive({
   playerA: { id: '', name: '' },
   playerB: { id: '', name: '' },
   hint: '',
+  quiz: '', // 追加
   timer: 30,
   currentAnswer: ['', '', '', ''],
   correctAnswer: '',
@@ -153,6 +154,7 @@ function resetGame() {
     playerA: { id: '', name: '' },
     playerB: { id: '', name: '' },
     hint: '',
+    quiz: '', // 追加
     timer: 30,
     currentAnswer: ['', '', '', ''],
     correctAnswer: '',
@@ -177,10 +179,18 @@ function setupSocketHandlers() {
       playerA: data.playerA,
       playerB: data.playerB,
       hint: data.hint,
+      quiz: data.quiz || '', // ← ここでquizをセット
       timer: data.timer,
       currentAnswer: ['', '', '', '']
     });
     isPlayerA.value = socket.value.id === data.playerA.id;
+  });
+  socket.value.on('nextQuestion', data => {
+    gameState.roundStatus = 'playing';
+    gameState.hint = data.hint;
+    gameState.quiz = data.quiz; // 追加
+    gameState.timer = data.timer;
+    gameState.currentAnswer = data.currentAnswer;
   });
   socket.value.on('updateTimer', timer => gameState.timer = timer);
   socket.value.on('updateAnswer', answer => gameState.currentAnswer = answer);
