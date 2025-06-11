@@ -119,13 +119,12 @@ export default function (httpServer) {
   return io;
 }
 
-// プレイヤーのマッチング  
 function matchPlayers() {
   const waitingPlayers = players.filter(p => !p.roomId);
 
   if (waitingPlayers.length >= 2) {
-    const playerA = waitingPlayers;
-    const playerB = waitingPlayers;
+    const playerA = waitingPlayers[0]; // 修正
+    const playerB = waitingPlayers[1]; // 修正
 
     const roomId = `room-${currentRoomId++}`;
     playerA.roomId = roomId;
