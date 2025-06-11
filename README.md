@@ -16,7 +16,7 @@
 - [Nuxt 3](https://nuxt.com/)
 - [Vue 3](https://vuejs.org/)
 - [Socket.IO](https://socket.io/)
-- TypeScript（サーバー側のみ）
+- TypeScript
 - HTML / CSS（Scoped Style）
 
 ## 📦 セットアップ
